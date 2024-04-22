@@ -1,0 +1,31 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+   .login-body{
+margin-bottom: 105px;   
+}
+
+</style>
+ <br>
+    <div class="row mt-4 login-body">
+        <div class="col-5 offset-3">
+
+            <form action="/login" method="POST" class="needs-validation" novalidate>
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input name="username" id="username" type="text" class="form-control" placeholder="Enter username" required />
+
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input name="password" id="password" type="password" class="form-control" placeholder="Enter password" required />
+                </div>
+
+                <button class="btn btn-success">Login</button>
+               <br> <br>
+               <p>Don't have an account ? <a href="/signup" style="text-decoration: none;">Sign Up</a></p>
+            </form>
+        </div>
+    </div>

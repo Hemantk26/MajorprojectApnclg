@@ -1,0 +1,93 @@
+<% layout("/layouts/boilerplate") %>
+
+
+  <div class="col-8 offset-2 mt-3">
+    <h3>Create a New Listing</h3>
+    <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title<span class="text-danger">*</span></label></label>
+        <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" required />
+
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" placeholder="Write about your property" class="form-control"
+          required></textarea>
+        <div class="invalid-feedback">
+          Enter a valid description
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Image<span class="text-danger">*</span></label></label>
+        <input name="listing[image]" type="file" class="form-control" required />
+      </div>
+
+      <div class="row">
+
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price<span class="text-danger">*</span></label></label>
+          <input name="listing[price]" placeholder="enter price" class="form-control" type="number" />
+          <div class="invalid-feedback">
+            Enter valid price </div>
+        </div>
+
+        <div class="mb-3 col-md-8">
+          <label for="Contact" class="form-label">Contact Number<span class="text-danger">*</span></label></label>
+          <input name="listing[Contact]" placeholder="enter contact number" type="text" class="form-control" required />
+          <div class="invalid-feedback">
+            Enter a valid contact number </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="mb-3 col-md-4">
+          <label for="Pin" class="form-label">Pin Code<span class="text-danger">*</span></label></label>
+          <input name="listing[Pin]" placeholder="enter pin code " type="number" class="form-control" required />
+          <div class="invalid-feedback">
+            Enter a valid pin code </div>
+        </div>
+
+        <div class="mb-3 col-md-8">
+          <label for="DistState" class="form-label ">Enter district & state<span
+              class="text-danger">*</span></label></label>
+          <input name="listing[DistState]" placeholder="Bhopal, Madhyapradesh" type="text" class="form-control"
+            required />
+          <div class="invalid-feedback">
+            Enter a valid </div>
+        </div>
+
+      </div>
+
+      <div class="mb-3 ">
+        <label for="Address" class="form-label">Enter address <span class="text-danger">*</span></label>
+        <input name="listing[Address]" placeholder="Enter address in detail" type="text" class="form-control"
+          required />
+        <div class="invalid-feedback">
+          Enter a valid address </div>
+      </div>
+
+      <div class="mb-3 ">
+        <label onclick="fetchLocation()" for="locationLink" class="form-label"> Click me get your current location <span class="text-danger">*</span></label>
+        <input onclick="fetchLocation()" name="listing[locationLink]" placeholder="Allow location permission we will fetch automatically" type="text"
+          id="googleMapsLink" class="form-control" required>
+      </div>
+
+      <br>
+
+      <button  class="btn btn-dark add-btn mb-4">Submit</button>
+    </form>
+
+    <br> <br> <br> <br> <br> <br> <br> <br>
+
+
+  </div>
+
+  <script src="/js/locationLink.js">  </script>

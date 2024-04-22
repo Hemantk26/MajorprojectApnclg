@@ -1,0 +1,252 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-width: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+.navbar {
+    height: 4.5rem;
+    background-color: white;
+}
+
+
+
+.signup-login {
+
+    /* border: 0.1px solid #c44e4e !important; Change the color and thickness as desired */
+    padding: 5px 15px;
+    /* Adjust padding as needed */
+    border-radius: 20px;
+    /* Optional: add border radius for rounded corners */
+    margin: 0 7px;
+    color: white !important;
+    text-decoration: none;
+    background-color: #007bff; 
+}
+
+
+.navbar-brand i {
+    color: #007bff;
+}
+.navbar-brand{
+    padding-left: 20px;
+}
+
+.navbar-nav {
+    margin-right: 2rem;
+}
+
+.navbar-nav .app-link{
+      padding-top: 4px;
+      font-size: 17px;
+  }
+.navbar-nav a{
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+}
+
+.navbar-nav a:hover {
+    outline: #000;
+}
+.signup-login {
+    outline: none !important; /* Remove the outline */
+    /* Or you can customize the focus style */
+    box-shadow: none !important;
+    color: #000 !important;
+    background-color: white;
+    border: 0.5px solid black;
+}
+
+
+
+
+/* /// body */
+
+
+.search-bar-right a {
+    text-decoration: none;
+    font-size: 25px;
+    background-color: #fe424d;
+    padding: 40px; 
+    color: white !important;
+    font-weight: bold; 
+}
+
+.list a{
+    border-radius: 0 70px;
+}
+.find a{
+    border-radius: 70px 0;
+}  
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-social,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-links a {
+    margin-bottom: 10px;
+}
+
+.f-info-social i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 7rem;
+    background-color: #cbcbeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem !important;
+    /* height: 200px !important; */
+
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    height: 350px !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+
+.card-text p {
+    font-weight: 400 !important;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* edit page */
+
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/* show page  */
+
+.show-img {
+    height: 30vh;
+}
+
+.btns {
+    display: flex;
+
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+
+}
+
+
+/* map  */
+
+#map {
+    height: 400px;
+    width: 80vh;
+}
+
+/* // popular city */
+
+.popular-city {
+    margin: 50px 0 80px 0;
+}
+
+.popular-city ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 30px 0 0px 0;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.popular-city ul li {
+    flex-basis: 20%;
+    /* Each city takes up 20% of the container width */
+    text-align: center;
+}
+
+.popular-city ul li a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    /* Adjust color as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    /* Add borders for clarity */
+    margin: 15px;
+    /* Add some spacing between cities */
+    border-radius: 30px;
+
+}
+
+.trending-list {
+    margin-bottom: 250px;
+}
+
+.card-body{
+    line-height: 20px;
+}
+
+.card-body .fa-whatsapp{
+    text-decoration: none;
+    color: green;
+    font-size: 20px;
+}
+.card-body a{
+    text-decoration: none;
+}
+.call:hover{
+    text-decoration: underline;
+}

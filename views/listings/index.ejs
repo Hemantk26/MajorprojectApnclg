@@ -1,0 +1,163 @@
+<% layout("/layouts/boilerplate") %>
+
+  <style>
+    /* /// search bar */
+    .search-bar {
+      padding-left: 50px;
+      margin: 160px 0px 0px 0px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 50px;
+
+    }
+
+    .search-bar-right{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+     
+    }
+
+    .search-bar-left p{
+      font-size: 20px;
+    }
+    .find{
+      margin-top: 120px;
+    }
+    .search-btn {
+      border-radius: 50px;
+      padding: 0 1rem 0 1rem;
+      width: fit-content;
+      border: 0.1px solid #dddada;
+    }
+
+    .search-btn:hover {
+      background-color: #28a745;
+      color: #fff;
+      opacity: 1;
+    }
+
+    .search-btn i {
+      display: inline;
+      margin-right: 0.5rem;
+    }
+    .search-btn{
+      margin-top: 30px;
+
+    }
+
+    .search-inp {
+      border-radius: 50px;
+      padding: 0.5rem 0rem 0.5rem 1rem;
+      width: 400px;
+      margin-top: 30px;
+    }
+
+    .navbar-nav h1 {
+      font-size: 32px;
+    }
+
+    .navbar-nav p {
+      font-size: 19px;
+      margin-bottom: 30px;
+    }
+  </style>
+
+
+  <div class=" search-bar ms-auto">
+
+    <div class="search-bar-left">
+
+    <h1>Looking for a room ! </h1>
+    <p>Find and rent your perfect room</p>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2 search-inp" type="search" placeholder="Search destination" />
+      <br>
+
+      <button class="btn search-btn" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i> Search
+      </button>
+    </form>
+
+  </div>
+
+    <!-- ///find and list  --> 
+    <div class="search-bar-right">
+
+      <div class="list">
+        <a href="/listings/new"> <i class="fa-solid fa-plus"></i>&nbsp; List a room</a>
+      </div>
+  
+      <div class="find">
+        <a href="/login"> <i class="fa-solid fa-location-dot"></i> &nbsp; Find a room</a>
+      </div>
+  
+    </div>
+
+  </div>
+  <br> <br> <br>
+
+
+
+  <div class="popular-city">
+    <h2>&nbsp; Rent your perfect room in popular city</h2>
+    <ul>
+      <li><a href="#">Mumbai</a></li>
+      <li><a href="#">Delhi</a></li>
+      <li><a href="#">Bangalore</a></li>
+      <li><a href="#">Hyderabad</a></li>
+      <li><a href="#">Ahmedabad</a></li>
+      <li><a href="#">Chennai</a></li>
+      <li><a href="#">Kolkata</a></li>
+      <li><a href="#">Pune</a></li>
+      <li><a href="#">Surat</a></li>
+      <li><a href="#">Jaipur</a></li>
+      <li><a href="#">Lucknow</a></li>
+      <li><a href="#">Kanpur</a></li>
+      <li><a href="#">Nagpur</a></li>
+      <li><a href="#">Patna</a></li>
+      <li><a href="#">Indore</a></li>
+      <li><a href="#">Thane</a></li>
+      <li><a href="#">Bhopal</a></li>
+      <li><a href="#">Bhopal</a></li>
+      <li><a href="#">Lucknow</a></li>
+      <li><a href="#">Kanpur</a></li>
+      <li><a href="#">Nagpur</a></li>
+      <li><a href="#">Patna</a></li>
+      <li><a href="#">Indore</a></li>
+      <li><a href="#">Thane</a></li>
+      <li><a href="#">Lucknow</a></li>
+      <li><a href="#">Kanpur</a></li>
+      <li><a href="#">Nagpur</a></li>
+      <li><a href="#">Patna</a></li>
+      <li><a href="#">Indore</a></li>
+      <li><a href="#">Thane</a></li>
+    </ul>
+  </div>
+
+  <h1 style="font-size: 31px;">Trending listings</h1>
+  <br> 
+  <div class="row row-cols-lg-4  row-cols-nd-3 row-cols-sm-1  trending-list">
+
+    <% for (let listing of allListings) { %>
+      <a href="/listings/<%= listing._id %>" class="listing-link">
+
+        <div class="card col listing-card">
+          <img src=" <%= listing.image.url %>" class="card-img-top" alt="listing-images" style="height: 10rem !important">
+          <div class="card-body">
+
+            <div class="card-img-overlay"> </div>
+
+            <p class="card-text">
+              <%= listing.title %> <br>
+               Rent: &#8377; <%= listing.price %> /-
+            </p>
+
+          </div>
+        </div>
+      </a>
+      <% } %>
+
+  </div>
+
+  

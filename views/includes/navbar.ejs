@@ -1,0 +1,84 @@
+<style>
+  /* .search-btn{
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 50px;
+    padding: 0 0.3rem 0 0.3rem;
+    width: 145px;
+  }
+
+  .search-btn:hover{
+    background-color: #fe424d;
+    color: #fff;
+  }
+
+.search-btn i{ 
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.search-inp {
+  border-radius: 50px ;
+  padding: 0.5rem 0rem 0.5rem 1rem;
+} */
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-house"></i> &nbsp;RoomFinder</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <!-- <a class="nav-link" href="/listings/new">Add new Listing</a> -->
+
+      </div>
+
+
+
+
+      <div class="navbar-nav btn-outline ms-auto ">
+        <a href="/listings/new" class="app-link">List your room </a> &nbsp; &nbsp; &nbsp; &nbsp;
+        <a href="/listings" class="app-link">Find room </a> &nbsp; &nbsp; &nbsp;
+        <a href="/listings" class="app-link">Download App <i class="fa-brands fa-google-play"></i></a> &nbsp; &nbsp;
+        &nbsp;
+
+        <% if (!currUser ) { %>
+          <a class="signup-login" href="/signup"><b>Sign up</b></a>
+          <a class="signup-login" href="/login"><b>Log in</b></a>
+
+          <% } %>
+
+            <% if(currUser) { %>
+
+              <div class="dropdown">
+
+                <button class=" dropdown-toggle signup-login"  type="button" id="profileDropdown"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-regular fa-user"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                  <li><a class="dropdown-item" href="/profile">View Profile</a></li>
+                  <!-- <li><a class="dropdown-item" href="/profile/edit">Edit Profile</a></li> -->
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="/logout">Log out</a></li>
+                </ul>
+              </div>
+
+
+              <% } %>
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+</nav>
+
