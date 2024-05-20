@@ -1,106 +1,149 @@
 <% layout("/layouts/boilerplate") %>
 
   <style>
-    /* /// search bar */
     .search-bar {
-      padding-left: 50px;
-      margin: 160px 0px 0px 0px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
-      margin-bottom: 50px;
-
+      align-items: center;
+      padding: 25px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      height: 400px;
+      width: 780px;
+      margin-left: 30px;
     }
 
-    .search-bar-right{
+    .search-bar {
+      background-image: url("/img/list_place_img.png") !important;
+      object-fit: cover !important;
+      background-repeat: no-repeat;
+    }
+    
+
+    .search-bar-left {
+      flex: 1;
+      margin-left: 25px;
+      margin-top: -30px;
+    }
+
+    .search-bar-right {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-     
+      gap: 25px;
+
     }
 
-    .search-bar-left p{
-      font-size: 20px;
-    }
-    .find{
-      margin-top: 120px;
-    }
-    .search-btn {
-      border-radius: 50px;
-      padding: 0 1rem 0 1rem;
-      width: fit-content;
-      border: 0.1px solid #dddada;
+    .search-bar-right .list,
+    .search-bar-right .find {
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
-    .search-btn:hover {
-      background-color: #28a745;
-      color: #fff;
-      opacity: 1;
+    .search-bar-right .list a,
+    .search-bar-right .find a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
     }
 
-    .search-btn i {
-      display: inline;
-      margin-right: 0.5rem;
-    }
-    .search-btn{
-      margin-top: 30px;
-
+    .search-bar-right .list a:hover,
+    .search-bar-right .find a:hover {
+      color: #555;
     }
 
     .search-inp {
-      border-radius: 50px;
-      padding: 0.5rem 0rem 0.5rem 1rem;
-      width: 400px;
+      width: 300px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .search-btn {
+      padding: 10px 20px;
+      border: 1px solid #007bff;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .search-btn:hover {
+      background-color: #297dd6;
+    }
+
+    .div-1 {
+      display: flex;
+      flex-direction: row;
+      margin: 70px 0 30px 0;
+      justify-content: space-between;
+    }
+
+    .design {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .design .img1 {
+      height: 250px;
       margin-top: 30px;
     }
 
-    .navbar-nav h1 {
-      font-size: 32px;
-    }
-
-    .navbar-nav p {
-      font-size: 19px;
-      margin-bottom: 30px;
+    .design .img2 {
+      height: 90px;
+      margin-top: 20px;
     }
   </style>
 
 
-  <div class=" search-bar ms-auto">
+  <div class="div-1">
 
-    <div class="search-bar-left">
+    <div class="search-bar ">
 
-    <h1>Looking for a room ! </h1>
-    <p>Find and rent your perfect room</p>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2 search-inp" type="search" placeholder="Search destination" />
-      <br>
+      <div class="search-bar-left">
 
-      <button class="btn search-btn" type="submit">
-        <i class="fa-solid fa-magnifying-glass"></i> Search
-      </button>
-    </form>
+        <h1>Looking for a room ! </h1>
+        <p>Find and rent your perfect room</p>
+        <form action="/listings/search" method="GET" class="d-flex" role="search" id="search">
+          <input class="form-control me-2 search-inp" name="query" type="text" placeholder="Search destination" />
+          <br>
 
-  </div>
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
 
-    <!-- ///find and list  --> 
-    <div class="search-bar-right">
+        </form>
 
-      <div class="list">
-        <a href="/listings/new"> <i class="fa-solid fa-plus"></i>&nbsp; List a room</a>
       </div>
-  
-      <div class="find">
-        <a href="/login"> <i class="fa-solid fa-location-dot"></i> &nbsp; Find a room</a>
+
+      <!-- ///find and list  -->
+      <div class="search-bar-right">
+
+        <div class="list">
+          <a href="/listings/new"> <i class="fa-solid fa-plus"></i>&nbsp; List a room</a>
+        </div>
+
+        <div class="find">
+          <a href="/login"> <i class="fa-solid fa-location-dot"></i> &nbsp; Find a room</a>
+        </div>
       </div>
-  
+
+    </div>
+
+    <div class="design">
+      <img class="img1" src="/img/phone_img.svg" alt="">
+      <img class="img2" src="/img/flower_img.svg" alt="">
     </div>
 
   </div>
+
   <br> <br> <br>
 
-
-
+  <h2>&nbsp; Rent your perfect room in popular city</h2>
   <div class="popular-city">
-    <h2>&nbsp; Rent your perfect room in popular city</h2>
     <ul>
       <li><a href="#">Mumbai</a></li>
       <li><a href="#">Delhi</a></li>
@@ -136,21 +179,22 @@
   </div>
 
   <h1 style="font-size: 31px;">Trending listings</h1>
-  <br> 
+  <br>
   <div class="row row-cols-lg-4  row-cols-nd-3 row-cols-sm-1  trending-list">
 
     <% for (let listing of allListings) { %>
       <a href="/listings/<%= listing._id %>" class="listing-link">
 
         <div class="card col listing-card">
-          <img src=" <%= listing.image.url %>" class="card-img-top" alt="listing-images" style="height: 10rem !important">
+          <img src=" <%= listing.image.url %>" class="card-img-top" alt="listing-images"
+            style="height: 10rem !important">
           <div class="card-body">
 
             <div class="card-img-overlay"> </div>
 
             <p class="card-text">
               <%= listing.title %> <br>
-               Rent: &#8377; <%= listing.price %> /-
+                Rent: &#8377; <%= listing.price %> /-
             </p>
 
           </div>
@@ -160,4 +204,50 @@
 
   </div>
 
-  
+  <!-- ///// about team -->
+  <h1 class="about-team-h1">About team</h1>
+
+  <div class="team-card">
+    <div class="team-member">
+      <img src="/img/hk.jpg" alt="m1">
+      <div class="member-details">
+        <h2> Hemant khare</h2>
+        <p>Enrollment Number: 0108CS201039</p>
+        <p>Scholar Number: 30261</p>
+        <p>Role: Backend design</p>
+      </div>
+    </div>
+
+    <div class="team-member">
+      <img src="/img/sushmita.jpg" alt="m1">
+      <div class="member-details">
+        <h2> Sushmita Tilgam</h2>
+        <p>Enrollment Number: 0108CS201123</p>
+        <p>Scholar Number: 30247</p>
+        <p>Role: Fronted design</p>
+      </div>
+    </div>
+
+    <div class="team-member">
+      <img src="/img/abhi.jpg" alt="m1">
+      <div class="member-details">
+        <h2>Abhshek Sindriya</h2>
+        <p>Enrollment Number: 0108CS201004</p>
+        <p>Scholar Number: 30291</p>
+        <p>Role: Database </p>
+      </div>
+    </div>
+
+
+    <div class="team-member">
+      <img src="/img/reena.jpg" alt="m1">
+      <div class="member-details">
+        <h2> Reena Ahirwar</h2>
+        <p>Enrollment Number: 0108CS201090</p>
+        <p>Scholar Number: 30409</p>
+        <p>Role: Frontend design</p>
+      </div>
+    </div>
+
+
+  </div>

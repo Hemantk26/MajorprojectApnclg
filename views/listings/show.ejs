@@ -5,12 +5,10 @@
         const listing =  <%- JSON.stringify(listing) %> ;
     </script>
 
-
-
     <div class="row A">
 
         <div class="col-8 offset-2 mt-4 ">
-            <br> 
+            <br>
             <h3>
                 <%= listing.title %>
             </h3> <br>
@@ -30,15 +28,18 @@
                     <%= listing.description %>
                 </p>
 
-                <p class="card-text"> <b>District & State:</b> &nbsp;
-                    <%= listing.DistState %> &nbsp; <%= listing.Pin %>
+                <p class="card-text"> <b>Dist. & State:</b> &nbsp;
+                    <%= listing.DistState %> &nbsp;
                 </p>
+
+
                 <p class="card-text"> <b>Pin code:</b> &nbsp;
                     <%= listing.Pin %>
                 </p>
 
                 <p class="card-text"> <b>Address: </b> &nbsp;
-                    <%= listing.Address %> <a href="<%= listing.locationLink  %>"> &nbsp; &nbsp; Get direction &nbsp;<i class="fa-solid fa-route"></i></a>
+                    <%= listing.Address %> <a href="<%= listing.locationLink  %>" target="_blank"> &nbsp; &nbsp; Get
+                            direction &nbsp;<i class="fa-solid fa-route"></i></a>
                 </p>
 
                 <p class="card-text "> <b> Call : &nbsp;</b>+91
@@ -48,7 +49,7 @@
                 </p>
 
 
-                <p> <b>Chat with us: &nbsp;</b><a target="_blank" href="https://wa.me/919752979519"> <i
+                <p> <b>Chat with us: &nbsp;</b><a target="_blank" href="https://wa.me/<%= listing.Contact %>"> <i
                             class="fa-brands fa-whatsapp"></i> </a> </p>
 
                 <p class="card-text"> <b>Rent &#x20B9;: &nbsp; </b>
@@ -58,7 +59,6 @@
             </div>
 
         </div>
-
 
         <% if(currUser && currUser._id.equals(listing.owner._id)) {%>
 
@@ -76,7 +76,7 @@
                 <!-- ///leave a review -->
 
                 <div class="col-8 offset-2 mb-3 C">
-                    
+
                     <% if(currUser) { %>
                         <hr>
                         <h4>Leave a Review</h4>
@@ -156,15 +156,32 @@
                 </div>
 
                 <div class="col-8 offset-2 mb-3">
-                    <hr>  
+                    <hr>
                     <h3> Where you'll be</h3> <br>
-                   <p> Want exact location of room:<a style="text-decoration: none;" href="<%= listing.locationLink  %>" > &nbsp; &nbsp; Get direction &nbsp;<i class="fa-solid fa-route"></i></a> </p>
-                
+                    <p> Want exact location of room:<a style="text-decoration: none;"
+                            href="<%= listing.locationLink  %>"> &nbsp; &nbsp; Get direction &nbsp;<i
+                                class="fa-solid fa-route"></i></a> </p>
+
                     <div id="map"></div>
+
+                  
+                  
                 </div>
 
-    </div>          <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+               
+
+            
+
+    </div> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
 
+    <!-- <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiaGVtYW50a2hhcmUiLCJhIjoiY2x2NmczdGIxMGY5eDJxbzBnM3o2bDFqdSJ9.wC4ZcyCf5RFGV08k_avbLA';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            center: [-74.5, 40], // starting position [lng, lat]
+            zoom: 9 // starting zoom
+        });
+    </script> -->
 
     <script src="/js/map.js"></script>

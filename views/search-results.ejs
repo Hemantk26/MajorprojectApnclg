@@ -1,0 +1,60 @@
+<% layout("/layouts/boilerplate") %>
+
+    <style>
+        .listing-container {
+            margin-bottom: 300px;
+        }
+
+        .listing-data {
+            border: none !important;
+            margin-bottom: 2rem !important;
+            padding: 5px;
+        }
+
+        .card-img {
+            object-fit: cover !important;
+            width: 400px;
+            height: 200px !important;
+        }
+
+        .card-body {
+            margin-top: 4px;
+        }
+
+        .card-img {
+            border-radius: 13px;
+        }
+    </style>
+    <br> <br>
+
+    <div class="search-result offset-2  ">
+        <h3>Available rooms are here</h3>
+        <hr> <br>
+        <% if (listings.length> 0) { %>
+            <% listings.forEach(listing=> { %>
+
+                <a href="/listings/<%= listing._id %>" class="listing-link">
+
+                    <div class=" listing-data">
+                        <img src=" <%= listing.image.url %>" class="card-img" alt="listing-images"
+                            style="height: 10rem !important">
+                        <div class="card-body">
+
+                            <p class="card-text">
+                                &nbsp; &nbsp; <%= listing.title %> <br>
+                                    &nbsp; &nbsp; Rent: &#8377; <%= listing.price %> /- <br>
+                                        &nbsp; &nbsp; more details &nbsp;<i class="fa-solid fa-circle-chevron-down"></i>
+                            </p>
+
+                        </div>
+                    </div>
+                </a>
+
+                <% }); %>
+                    <% } else { %>
+                        <p>No listings found.</p>
+                        <% } %>
+
+    </div>
+
+    <br> <br> <br> <br> <br> <br>

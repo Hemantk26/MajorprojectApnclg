@@ -9,17 +9,17 @@ const listingSchema = new Schema({
     type: String,
     required: true,
   },
-
   description: String,
-
-  image: {
+  image: 
+    {
     url: String,
     filename: String,
   },
-
   price: Number,
   Contact : String,
   Pin: Number,
+  // District: String,   
+  // State: String,         
   DistState: String,
   Address: String,
   locationLink: String,
@@ -38,12 +38,12 @@ const listingSchema = new Schema({
 
   geometry: {
     type: {
-      type: String, // Don't do `{ location: { type: String } }`
-      enum: ["Point"], // 'location.type' must be 'Point'
+      type: String, 
+      enum: ["Point"], 
       required: true,
     },
     coordinates: {
-      type: [Number],
+      type: [Number], 
       required: true,
     },
   },

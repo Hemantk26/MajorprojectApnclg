@@ -34,17 +34,13 @@ const {storage} = require("./cloudConfig.js");
 const upload = multer({ storage});
 
 const userRouter = require("./routes/user.js");
-const router = require("./routes/user.js");
-// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const router = require("./routes/user.js");    ///profile
+const { profile } = require('console');
 
-const dbUrl = process.env.ATLASDB_URL;
+///local databse
+const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
-
-//// ******************************* profile
-// const profile = require("./views/users/profile.ejs")
-
-/// profile
-
+// const dbUrl = process.env.ATLASDB_URL;       //mongo atlas
 
 
 main()
@@ -56,7 +52,8 @@ main()
     });
 
 async function main() {
-    await mongoose.connect(dbUrl);
+    await mongoose.connect(MONGO_URL);
+    // await mongoose.connect(dbUrl);    mongo atlas
 }
 
 app.set("view engine", "ejs");
@@ -65,21 +62,60 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
+app.use("/image", express.static('/img/hk.jpg'));
+app.use(express.static(path.join(__dirname, 'img')));
 
-const store = MongoStore.create({
-    mongoUrl: dbUrl,
-    crypto: {
-        secret: process.env.SECRET,
-    },
-    touchAfter: 24 * 3600,
+/// monog atlas
+
+// const store = MongoStore.create({
+//     mongoUrl: dbUrl,
+//     crypto: {
+//         secret: process.env.SECRET,
+//     },
+//     touchAfter: 24 * 3600,
+// });
+
+// store.on("error", () => {
+//     console.log("ERROR in MONGO SESSION STORE", err);
+// });
+
+// search functionality
+router.get('/listings/search', async (req, res) => {
+    const { query } = req.query;
+    try {
+        const pin = parseInt(query);
+
+        // Search for listings based on the query
+        const listings = await Listing.find({
+            $or: [
+                // { Pin: { $regex: query, $options: 'i' } }, 
+                // { District: { $regex: query, $options: 'i' } },
+                // { State: { $regex: query, $options: 'i' } },
+                { DistState: { $regex: query, $options: 'i' } },
+                // { Contact: { $regex: query, $options: 'i' } },
+                // { Pin: pin } 
+            ]
+        });
+        res.render('search-results', { listings });
+    } catch (err) {
+        console.error('Error searching listings:', err);
+        res.status(500).send('Internal Server Error');
+    }
 });
+module.exports = router;
 
-store.on("error", () => {
-    console.log("ERROR in MONGO SESSION STORE", err);
+
+app.get('/search-results', (req, res, next) => {
+    // Logic to fetch search results from MongoDB
+    if (!searchResults) {
+        return next(new Error('No search results found.'));
+    }
+    // Render the search-results view with the fetched data
+    res.render('search-results', { listings: searchResults });
 });
 
 const sessionOptions = {
-    store,
+    // store,
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
@@ -110,11 +146,17 @@ app.use((req, res, next) => {
 
 app.use("/", userRouter);    
 
+
 ////************************************************ **************************************************/
+
+// app.use("/", profile);
+
 // app.get("/profile" ,(req, res, next) => {
 
 //          res.redirect("/profile")
 // });
+
+
 
 ///index Route  for localhost:8080/listings
 app.get("/listings", wrapAsync(listingController.index) );
@@ -133,13 +175,17 @@ router
     .route("/listings")
     .post( 
         isLoggedIn, 
-        upload.single("listing[image]"),
+        upload.single("listing[images]"),
         validateListing, 
         wrapAsync(listingController.createListing) 
     );
 
 //  edit Route
-app.get("/listings/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.RenderEditForm));
+app.get("/listings/:id/edit", 
+        isLoggedIn, 
+        isOwner, 
+        wrapAsync
+        (listingController.RenderEditForm));
 
 
 //  / Update Route

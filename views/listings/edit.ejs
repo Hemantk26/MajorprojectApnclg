@@ -32,7 +32,7 @@
 
         <div class="row">
 
-          <div class=" mb-3 col-md-4">
+          <div class=" mb-3 col-md-3">
             <label for="price" class="form-label">Price</label>
             <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required />
             <div class="invalid-feedback">
@@ -40,7 +40,7 @@
           </div>
 
 
-          <div class=" mb-3 col-md-8">
+          <div class=" mb-3 col-md-9">
             <label for="Contact" class="form-label">Contact </label>
             <input name="listing[Contact]" value="<%= listing.Contact %>" type="text" class="form-control" required />
             <div class="invalid-feedback">
@@ -49,20 +49,22 @@
         </div>
 
         <div class="row">
-          <div class=" mb-3 col-md-4">
+          <div class=" mb-3 col-md-3">
             <label for="Pin" class="form-label">Pin Code </label>
             <input name="listing[Pin]" value="<%= listing.Pin %>" type="text" class="form-control" required />
             <div class="invalid-feedback">
               Enter a valid Pin code </div>
           </div>
 
-
-          <div class=" mb-3 col-md-8">
+          <div class=" mb-3 col-md-4">
             <label for="location" class="form-label">District & State</label>
             <input name="listing[DistState]" value="<%= listing.DistState %>" type="text" class="form-control" required />
             <div class="invalid-feedback">
               Enter a valid location </div>
           </div>
+
+          
+
         </div>
 
           <div class=" mb-3 ">
@@ -73,16 +75,15 @@
           </div>
 
           <div class=" mb-3 ">
-            <label for="locationLink" class="form-label">Location link(optional)</label>
-            <input name="listing[locationLink]" value="<%= listing.locationLink %>" type="text" class="form-control" required />
+            <label onclick="fetchLocation()" for="locationLink" class="form-label">Location link(optional)</label>
+            <input onclick="fetchLocation()" name="listing[locationLink]" value="<%= listing.locationLink %>" type="text" class="form-control" id="googleMapsLink" required />
             <div class="invalid-feedback">
-              Enter a valid address </div>
-          </div>
-
-        
+              Enter a valid locationLink </div>
+          </div>  
     <button class="btn btn-dark edit-btn mt-3 mb-4">Submit Edit</button>
-
     </form>
 
   </div>
   </div>
+
+  <script src="/js/locationLink.js">  </script>

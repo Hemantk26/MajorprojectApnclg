@@ -34,13 +34,14 @@ module.exports.showListing = async (req, res) => {
 
 module.exports.createListing = async (req, res, next) => {
     let response = await geocodingClient.forwardGeocode({
-        query: req.body.listing.DistState,
+        query: req.body.listing.DistState,   ////// changes for district
         limit: 1,
     })
         .send();
 
     let url = req.file.path;
     let filename = req.file.filename;
+    
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
     newListing.image = { url, filename };

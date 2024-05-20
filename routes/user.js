@@ -23,11 +23,19 @@ router
             failureRedirect: "/login",
             failureFlash: true,
         }),
-        userController.login
+        userController.login,
     );
 
 ///logout functionality
 
+
 router.get("/logout", userController.logout);
+
+
+//////profile functionality
+router.get("/profile", (req, res) => {
+    res.render("users/profile.ejs");
+});
+
 module.exports = router;
 

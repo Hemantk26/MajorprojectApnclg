@@ -24,20 +24,20 @@
       </div>
 
       <div class="mb-3">
-        <label for="image" class="form-label">Upload Image<span class="text-danger">*</span></label></label>
-        <input name="listing[image]" type="file" class="form-control" required />
+        <label for="images" class="form-label">Upload Image<span class="text-danger">*</span></label></label>
+        <input name="listing[images]" type="file" class="form-control" multiple required />
       </div>
 
       <div class="row">
 
-        <div class="mb-3 col-md-4">
+        <div class="mb-3 col-md-3">
           <label for="price" class="form-label">Price<span class="text-danger">*</span></label></label>
           <input name="listing[price]" placeholder="enter price" class="form-control" type="number" />
           <div class="invalid-feedback">
             Enter valid price </div>
         </div>
 
-        <div class="mb-3 col-md-8">
+        <div class="mb-3 col-md-9">
           <label for="Contact" class="form-label">Contact Number<span class="text-danger">*</span></label></label>
           <input name="listing[Contact]" placeholder="enter contact number" type="text" class="form-control" required />
           <div class="invalid-feedback">
@@ -48,23 +48,25 @@
 
       <div class="row">
 
-        <div class="mb-3 col-md-4">
+        <div class="mb-3 col-md-3">
           <label for="Pin" class="form-label">Pin Code<span class="text-danger">*</span></label></label>
           <input name="listing[Pin]" placeholder="enter pin code " type="number" class="form-control" required />
           <div class="invalid-feedback">
             Enter a valid pin code </div>
         </div>
 
-        <div class="mb-3 col-md-8">
-          <label for="DistState" class="form-label ">Enter district & state<span
+        <div class="mb-3 col-md-9">
+          <label for="DistState" class="form-label ">Enter District & State<span
               class="text-danger">*</span></label></label>
-          <input name="listing[DistState]" placeholder="Bhopal, Madhyapradesh" type="text" class="form-control"
+          <input name="listing[DistState]" placeholder="Bhopal, madhyapradesh" type="text" class="form-control"
             required />
           <div class="invalid-feedback">
             Enter a valid </div>
         </div>
 
-      </div>
+        
+
+       </div>
 
       <div class="mb-3 ">
         <label for="Address" class="form-label">Enter address <span class="text-danger">*</span></label>
@@ -75,14 +77,16 @@
       </div>
 
       <div class="mb-3 ">
-        <label onclick="fetchLocation()" for="locationLink" class="form-label"> Click me get your current location <span class="text-danger">*</span></label>
-        <input onclick="fetchLocation()" name="listing[locationLink]" placeholder="Allow location permission we will fetch automatically" type="text"
-          id="googleMapsLink" class="form-control" required>
+        <label onclick="fetchLocation()" for="locationLink" class="form-label"> Click me get your current location <span
+            class="text-danger">*</span></label>
+        <input onclick="fetchLocation()" name="listing[locationLink]"
+          placeholder="Allow location permission we will fetch automatically" type="text" id="googleMapsLink"
+          class="form-control" required>
       </div>
 
       <br>
 
-      <button  class="btn btn-dark add-btn mb-4">Submit</button>
+      <button class="btn btn-dark add-btn mb-4">Submit</button>
     </form>
 
     <br> <br> <br> <br> <br> <br> <br> <br>
@@ -91,3 +95,5 @@
   </div>
 
   <script src="/js/locationLink.js">  </script>
+
+

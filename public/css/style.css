@@ -26,26 +26,44 @@ body {
     margin: 0 7px;
     color: white !important;
     text-decoration: none;
-    background-color: #007bff; 
+    /* background-color: #007bff;  */
 }
 
 
-.navbar-brand i {
-    color: #007bff;
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    text-decoration: none;
+    /* Remove default underline */
+    color: #333;
+    /* Adjust color as needed */
+    font-size: 1.7rem !important;
+    /* Adjust font size as needed */
+    font-weight: bold;
+    /* Adjust font weight as needed */
 }
-.navbar-brand{
+
+.navbar-brand img {
+    width: 30px;
+    /* Adjust image width as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin-right: 10px;
+    /* Adjust margin as needed */
+}
+
+
+.navbar-brand {
     padding-left: 20px;
 }
 
-.navbar-nav {
-    margin-right: 2rem;
+.navbar-nav .app-link {
+    padding-top: 4px;
+    font-size: 17px;
 }
 
-.navbar-nav .app-link{
-      padding-top: 4px;
-      font-size: 17px;
-  }
-.navbar-nav a{
+.navbar-nav a {
     font-weight: 400;
     color: #000;
     text-decoration: none;
@@ -53,9 +71,13 @@ body {
 
 .navbar-nav a:hover {
     outline: #000;
+    /* color: yellow; */
+    font-weight: bold;
 }
+
 .signup-login {
-    outline: none !important; /* Remove the outline */
+    outline: none !important;
+    /* Remove the outline */
     /* Or you can customize the focus style */
     box-shadow: none !important;
     color: #000 !important;
@@ -63,7 +85,17 @@ body {
     border: 0.5px solid black;
 }
 
+.navbar-nav .signup-login:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
+    /* Box shadow effect on hover */
+}
 
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    /* height: 1000px; */
+}
 
 
 /* /// body */
@@ -73,17 +105,18 @@ body {
     text-decoration: none;
     font-size: 25px;
     background-color: #fe424d;
-    padding: 40px; 
+    padding: 40px;
     color: white !important;
-    font-weight: bold; 
+    font-weight: bold;
 }
 
-.list a{
+.list a {
     border-radius: 0 70px;
 }
-.find a{
+
+.find a {
     border-radius: 70px 0;
-}  
+}
 
 .f-info-links a {
     text-decoration: none;
@@ -102,9 +135,12 @@ body {
     align-items: center;
     justify-content: center;
 }
+.f-info-links{
+    margin-bottom: 15px;
+}
 
 .f-info-links a {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .f-info-social i {
@@ -114,7 +150,7 @@ body {
 
 .f-info {
     text-align: center;
-    height: 7rem;
+    height: 8rem;
     background-color: #cbcbeb;
     display: flex;
     flex-wrap: wrap;
@@ -126,8 +162,6 @@ body {
 .listing-card {
     border: none !important;
     margin-bottom: 2rem !important;
-    /* height: 200px !important; */
-
 }
 
 .card-img-top {
@@ -141,22 +175,12 @@ body {
     padding: 0 !important;
 }
 
-
 .card-text p {
     font-weight: 400 !important;
 }
 
 .listing-link {
     text-decoration: none;
-}
-
-.card-img-overlay {
-    opacity: 0;
-}
-
-.card-img-overlay:hover {
-    opacity: 0.2;
-    background-color: white;
 }
 
 .add-btn {
@@ -179,15 +203,12 @@ body {
 
 .btns {
     display: flex;
-
 }
 
 .show-card {
     padding-left: 0;
     padding-right: 0;
-
 }
-
 
 /* map  */
 
@@ -199,7 +220,10 @@ body {
 /* // popular city */
 
 .popular-city {
-    margin: 50px 0 80px 0;
+    margin: 0px 0 80px 0;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    padding: 0 4px 10px 4px;
+    border-radius: 13px;
 }
 
 .popular-city ul {
@@ -208,12 +232,10 @@ body {
     margin: 30px 0 0px 0;
     display: flex;
     flex-wrap: wrap;
-    
 }
 
 .popular-city ul li {
     flex-basis: 20%;
-    /* Each city takes up 20% of the container width */
     text-align: center;
 }
 
@@ -221,32 +243,81 @@ body {
     display: block;
     text-decoration: none;
     color: #000;
-    /* Adjust color as needed */
     padding: 10px;
     border: 1px solid #ccc;
-    /* Add borders for clarity */
     margin: 15px;
-    /* Add some spacing between cities */
     border-radius: 30px;
+}
 
+.about-team-h1 {
+    font-size: 30px;
 }
 
 .trending-list {
-    margin-bottom: 250px;
+    margin-bottom: 90px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
 }
 
-.card-body{
+.card-body {
     line-height: 20px;
 }
 
-.card-body .fa-whatsapp{
+.card-body .fa-whatsapp {
     text-decoration: none;
     color: green;
     font-size: 20px;
 }
-.card-body a{
+
+.card-body a {
     text-decoration: none;
 }
-.call:hover{
+
+.call:hover {
     text-decoration: underline;
+}
+
+/* ////  about team */
+
+.team-card {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px 0 200px 0;
+    justify-content: space-between;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 13px;
+}
+
+.team-member {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    width: 210px;
+    height: 320px;
+}
+
+.team-member img {
+    width: 100%;
+    height: 50%;
+    border-radius: 8px;
+}
+.team-member img:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+}
+
+.member-details {
+    margin-top: 17px;
+    margin-bottom: -10px;
+}
+
+.member-details h2 {
+    margin: 0;
+    font-size: 16px;
+}
+.member-details p {
+    margin: 5px 0;
+    font-size: 12px;
 }
